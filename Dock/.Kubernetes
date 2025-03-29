@@ -17,7 +17,7 @@ COPY redis-node/ ./
 EXPOSE 3000
 
 # Définir les variables d'environnement
-ENV REDIS_URL='redis://redis-servis:6379'
+ENV REDIS_URL='redis://fc71ec7b92d1:6379'
 ENV REDIS_REPLICAS_URL=$REDIS_URL
 ENV PORT=3000
 
