@@ -14,9 +14,9 @@ spec:
       spec:
          containers: 
          - name: serveur
-           image: hamzzza/node-redis:v2
+           image: hamzzza/node-redis:v4
            ports:
-             - containerPort: 3000
+             - containerPort: 3001
              
 apiVersion: v1
 kind: Service
@@ -27,6 +27,6 @@ spec:
     app: serveur
   ports:
     - protocol: TCP
-      port: 3000
-      targetPort: 3000
+      port: 3001
+      targetPort: 3001
   type: LoadBalancer 

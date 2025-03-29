@@ -14,5 +14,8 @@ Comme nous somme sur minilube cela n'est pas possible nativement il faut donc la
 
 Il faut penser a changer l'url de l'image faite sur la partie docker car pour qu'un servoce 
 
-Pour le deploiement du front il faut creer une image pour le front 
+Pour le deploiement du front il faut creer une image pour le front et changer l'adresse du fichier conf.js avec la nouvelle adresse du serveur gedit 
 # sudo docker built -t front .
+
+//pour changer l'image d'un deployment kubectl set image deployment/serveur-deployment serveur=hamzzza/node-redis:v4//
+

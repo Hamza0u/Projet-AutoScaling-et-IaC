@@ -1,26 +1,19 @@
-FROM node:18
+# Étape 1 : Build l'application React
+FROM node:18 AS build
 
-# Définir le répertoire de travail à l'intérieur du conteneur
-WORKDIR /usr/src/app
+WORKDIR /app
 
-# Copier le fichier package.json et yarn.lock (si disponible) dans le conteneur
-COPY redis-node/package*.json ./
+# Copier les fichiers essentiels pour l’installation des dépendances
+COPY redis-react/package*.json redis-react/yarn.lock ./
 
 # Installer les dépendances
-RUN npm install --legacy-peer-deps
+RUN yarn install --frozen-lockfile
+
+# Copier tout le projet et build l'application
+COPY redis-react ./
+
+RUN yarn build
 
 
-# Copier tous les fichiers du projet dans le conteneur
-COPY redis-node/ ./
-
-# Exposer le port sur lequel votre application va écouter
-EXPOSE 3000
-
-# Définir les variables d'environnement
-ENV REDIS_URL='redis://redis-servis:6379'
-ENV REDIS_REPLICAS_URL=$REDIS_URL
-ENV PORT=3000
-
-# Démarrer le serveur Node.js
-CMD ["node", "main.js"]
-
+# Lancer l'application en mode développement
+CMD ["yarn", "start"]
