@@ -1,0 +1,18 @@
+#minikube start
+
+#minikube dashboard
+
+Pour le serveur on cree 3 deuplicates:
+pour pouvoir tester notre serveur depuis un navigateur web il faut que le services soit accecible depuis l'exterieur hors par defautl avec un ClusterIp cela n'est pas possible .
+
+La solution est donc d'utiliser un cluster IP .
+cela va nous donner une externalIP visible depuis l'exterieur .
+
+#minikube tunnel
+
+Comme nous somme sur minilube cela n'est pas possible nativement il faut donc lancer en parallele un minikube tunnel qui va attribuer un external IP a notre service .
+
+Il faut penser a changer l'url de l'image faite sur la partie docker car pour qu'un servoce 
+
+Pour le deploiement du front il faut creer une image pour le front 
+# sudo docker built -t front .

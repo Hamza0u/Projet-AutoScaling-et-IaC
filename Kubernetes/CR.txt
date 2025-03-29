@@ -1,0 +1,16 @@
+#minikube start
+
+#minikube dashboard
+
+Pour le serveur on cree 3 deuplicates:
+pour pouvoir tester notre serveur depuis un navigateur web il faut que le services soit accecible depuis l'exterieur hors par defautl avec un ClusterIp cela n'est pas possible .
+
+La solution est donc d'utiliser un cluster IP .
+cela va nous donner une externalIP visible depuis l'exterieur .
+
+#minikube tunnel
+
+Comme nous somme sur minilube cela n'est pas possible nativement il faut donc lancer en parallele un minikube tunnel qui va attribuer un external IP a notre service .
+
+
+
