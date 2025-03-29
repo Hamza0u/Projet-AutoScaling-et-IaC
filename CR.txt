@@ -19,3 +19,5 @@ Pour le deploiement du front il faut creer une image pour le front et changer l'
 
 //pour changer l'image d'un deployment kubectl set image deployment/serveur-deployment serveur=hamzzza/node-redis:v4//
 
+Probleme comme externelIP est dinamyque il faut alors recuperer la nouvelle IP la mettre dans le fichier Conf.js recreer l'image puis apply la nouvelle image au  deploiment front-deployment trop compliqué. Il faut donc trouver une autre solution 
+
