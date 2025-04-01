@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-replica-deployment
+  labels:
+    app: redis-replica
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: redis-replica
+  template:
+    metadata:
+      labels:
+        app: redis-replica
+    spec:
+      containers:
+        - name: redis-replica
+          image: hamzzza/redis:v1
+          command: ["redis-server", "--slaveof", "redis-service", "6379"]
+          ports:
+            - containerPort: 6379
+

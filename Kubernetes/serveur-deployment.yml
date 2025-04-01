@@ -29,4 +29,4 @@ spec:
     - protocol: TCP
       port: 3001
       targetPort: 3001
-  type: LoadBalancer 
+  type: LoadBalancer

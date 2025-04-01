@@ -14,6 +14,7 @@ COPY redis-react ./
 
 RUN yarn build
 
+EXPOSE 80 
 
 # Lancer l'application en mode développement
 CMD ["yarn", "start"]

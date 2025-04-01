@@ -14,12 +14,16 @@ spec:
     spec:
       containers:
         - name: front
-          image: hamzzza/react-frontend:v2
+          image: hamzzza/react-frontend:v5
           ports:
             - containerPort: 3000
-
+          env:
+            - name: REACT_APP_API_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: frontend-config
+                  key: REACT_APP_API_URL
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -29,7 +33,7 @@ spec:
     app: front
   ports:
     - protocol: TCP
-      port: 80           # Port externe du service
-      targetPort: 3000   # Port interne du conteneur
-  type: LoadBalancer
+      port: 80            # Port externe sur lequel le service sera accessible
+      targetPort: 3000    # Port interne du conteneur
+  type: LoadBalancer     # Change en NodePort si tu préfères l'option NodePort
 

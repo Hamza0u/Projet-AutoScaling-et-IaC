@@ -1,6 +1,7 @@
 #minikube start
-
+#minikube tunnel
 #minikube dashboard
+#il faut juste mettre l'external ip dans le navigateur
 
 Pour le serveur on cree 3 deuplicates:
 pour pouvoir tester notre serveur depuis un navigateur web il faut que le services soit accecible depuis l'exterieur hors par defautl avec un ClusterIp cela n'est pas possible .
