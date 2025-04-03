@@ -16,6 +16,7 @@ kubectl create configmap frontend-config --from-literal=REACT_APP_API_URL="http:
 
 echo "✅ ConfigMap mis à jour avec succès !"
 
-# Redémarrer le pod du frontend pour prendre en compte la mise à jour
-kubectl delete pod -l app=front
+# Redémarrer proprement le pod du frontend
+kubectl rollout restart deployment front-deployment
 
+echo "✅ Le frontend a été redémarré proprement !"
