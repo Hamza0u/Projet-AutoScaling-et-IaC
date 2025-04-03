@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana
+  template:
+    metadata:
+      labels:
+        app: grafana
+    spec:
+      containers:
+      - name: grafana
+        image: grafana/grafana:latest
+        ports:
+        - containerPort: 3000  # Port par défaut de Grafana
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana
+  namespace: default
+spec:
+  selector:
+    app: grafana
+  ports:
+    - protocol: TCP
+      port: 3000      # Port interne du service
+      targetPort: 3000  # Port auquel le container écoute
+      nodePort: 30000  # Choisis un NodePort libre (ex: 30000)
+  type: NodePort
+
